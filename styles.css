@@ -17,7 +17,8 @@ div.board {
     flex-wrap: wrap;
     /* justify-content: center; */
     /* align-items: center; */
-    border: 2px solid black;
+    border: 7px solid black;
+    border-radius: 15px;
     /* box-sizing: border-box; */
 
 }
