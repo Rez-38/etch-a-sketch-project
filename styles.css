@@ -1,0 +1,23 @@
+ body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+    /* box-sizing: border-box; */
+} 
+
+h1.header {
+    text-align: center;
+}
+
+div.board {
+    display: flex;
+    flex-wrap: wrap;
+    /* justify-content: center; */
+    /* align-items: center; */
+    border: 2px solid black;
+    /* box-sizing: border-box; */
+
+}
