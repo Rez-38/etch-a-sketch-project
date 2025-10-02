@@ -11,15 +11,16 @@ const totalTiles = size * size;
 
 const tileSize = boardSize / size;
 
-for (let i = 0; i < totalTiles; i++) {
-    const tile = document.createElement('div');
-    tile.classList.toggle('tile');
+generateGrid();
+// for (let i = 0; i < totalTiles; i++) {
+//     const tile = document.createElement('div');
+//     tile.classList.toggle('tile');
 
-    tile.style.width = `${tileSize}px`;
-    tile.style.height = `${tileSize}px`;
+//     tile.style.width = `${tileSize}px`;
+//     tile.style.height = `${tileSize}px`;
 
-    board.appendChild(tile);
-};
+//     board.appendChild(tile);
+// };
 
 // Tile behavior...
 const tiles = document.querySelectorAll('.tile');
@@ -45,14 +46,30 @@ sizeBtn.addEventListener('click', () => {
         return;
     }
 
-    board.document.QuerySelectorAll
     size = newSize;
+
+    clearGrid();
+    console.log("grid has been cleared")
 });
 
 // ================
 // Function Bank  =
 // ================
 
-function clearGrid() {}
+function clearGrid() {
+    while(board.firstChild) {
+        board.removeChild(board.firstChild);
+    }
+};
 
-function generateGrid() {}
+function generateGrid() {
+    for (let i = 0; i < totalTiles; i++) {
+        const tile = document.createElement('div');
+        tile.classList.toggle('tile');
+    
+        tile.style.width = `${tileSize}px`;
+        tile.style.height = `${tileSize}px`;
+    
+        board.appendChild(tile);
+    };
+};
