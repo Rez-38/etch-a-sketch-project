@@ -6,12 +6,12 @@ board.style.width = `${boardSize}px`;
 board.style.height = `${boardSize}px`;
 
 
-const size = 16;
-const totaltiles = size * size;
+let size = 16;
+const totalTiles = size * size;
 
 const tileSize = boardSize / size;
 
-for (let i = 0; i < totaltiles; i++) {
+for (let i = 0; i < totalTiles; i++) {
     const tile = document.createElement('div');
     tile.classList.toggle('tile');
 
@@ -21,9 +21,38 @@ for (let i = 0; i < totaltiles; i++) {
     board.appendChild(tile);
 };
 
+// Tile behavior...
 const tiles = document.querySelectorAll('.tile');
 tiles.forEach((tile) => {
     tile.addEventListener('mouseover', () => {
         tile.style.backgroundColor = 'navy';
     });
 });
+
+// Prompt button...
+const sizeBtn = document.querySelector('#sizeBtn');
+sizeBtn.addEventListener('click', () => {
+    let newSize = 16;
+    newSize = prompt('Select grid size (default is 16)...', '1-100');
+    console.log(newSize);
+    newSize = Number(newSize);
+
+    if (!newSize) {
+        return;
+    } else if (size === newSize) {
+        return;
+    } else if (newSize < 1 || newSize > 100) {
+        return;
+    }
+
+    board.document.QuerySelectorAll
+    size = newSize;
+});
+
+// ================
+// Function Bank  =
+// ================
+
+function clearGrid() {}
+
+function generateGrid() {}
