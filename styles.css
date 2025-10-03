@@ -11,6 +11,9 @@
 
 h1.header {
     text-align: center;
+    background-color: white;
+    border: 5px solid black;
+    padding: .5rem 1rem;
 }
 
 div.board {
@@ -24,7 +27,8 @@ div.board {
 
 }
 
-div button#sizeBtn {
+div button#sizeBtn,
+#brushBtn {
     font-size: 1.75rem;
     padding: 1rem 2rem;
     margin-bottom: 5%;
@@ -32,7 +36,8 @@ div button#sizeBtn {
     border: 4px solid black;
     transition: all 0.2s ease;
 }
-div button#sizeBtn:hover {
+div button#sizeBtn:hover,
+#brushBtn:hover {
     border: 4px solid white;
     border-radius: 25px;
     background-color: black;
@@ -40,7 +45,8 @@ div button#sizeBtn:hover {
     transform: scale(1.07);
 }
 
-div button#sizeBtn:active {
+div button#sizeBtn:active,
+#brushBtn:active {
     transform: translateY(7px);
     box-shadow: 0 4px white;
 }
