@@ -51,6 +51,23 @@ const board = document.querySelector('#board');
     board.style.width = `${boardSize}px`;
     board.style.height = `${boardSize}px`;
     board.style.backgroundColor = 'white';
+// Brush toggle...
+let isDrawing = false;
+console.log(`isDrawing = ${isDrawing}`);
+board.addEventListener('mousedown', () => {
+    console.log('mousedown');
+    if (isDrawing == false) {
+        isDrawing = true;
+        console.log(`isDrawing = ${isDrawing}`);
+    }
+});
+board.addEventListener('mouseup', () => {
+    console.log('mouseup');
+    if (isDrawing == true) {
+        isDrawing = false;
+        console.log(`isDrawing = ${isDrawing}`);
+    }
+});
 
 // Create Divs...
 generateGrid();
