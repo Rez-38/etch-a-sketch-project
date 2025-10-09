@@ -5,7 +5,7 @@ let size = 16;
 let totalTiles = size * size;
 const boardSize = 960;
 let tileSize = boardSize / size;
-// 
+// Brush button dependency
 let hoverOn = true;
 
 // Prompt button...
@@ -101,7 +101,6 @@ clearBtn.addEventListener('click', () => {
 });
 
 // Brush Button...
-// hoverOn = true;
 console.log(`hoverOn is ${hoverOn}...`);
 const brushBtn = document.querySelector('#brushBtn');
 brushBtn.addEventListener('click', () => {
