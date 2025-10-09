@@ -5,7 +5,8 @@ let size = 16;
 let totalTiles = size * size;
 const boardSize = 960;
 let tileSize = boardSize / size;
-
+// 
+let hoverOn = true;
 
 // Prompt button...
 const sizeBtn = document.querySelector('#sizeBtn');
@@ -34,6 +35,8 @@ sizeBtn.addEventListener('click', () => {
     
     currentSize.textContent = `${size} x ${size}`;
 });
+
+
 
 // Grid Size Display... DOM Node practice
 const currentSize = document.createElement('p');
@@ -68,6 +71,20 @@ board.addEventListener('mouseup', () => {
         console.log(`isDrawing = ${isDrawing}`);
     }
 });
+document.addEventListener('mouseup', () => {
+    console.log('document mouseup');
+    if (isDrawing == true) {
+        isDrawing = false;
+        console.log(`isDrawing = ${isDrawing}`);
+    }
+});
+board.addEventListener('mouseleave', () => {
+    console.log('mouseleave');
+    if (isDrawing == true) {
+        isDrawing = false;
+        console.log(`isDrawing = ${isDrawing}`);
+    }
+});
 
 // Create Divs...
 generateGrid();
@@ -84,7 +101,7 @@ clearBtn.addEventListener('click', () => {
 });
 
 // Brush Button...
-let hoverOn = true;
+// hoverOn = true;
 console.log(`hoverOn is ${hoverOn}...`);
 const brushBtn = document.querySelector('#brushBtn');
 brushBtn.addEventListener('click', () => {
@@ -95,8 +112,19 @@ brushBtn.addEventListener('click', () => {
     }
     console.log("Brush button clicked...");
     console.log(`hoverOn is ${hoverOn}...`);
+    onOff.textContent = `${hoverOn}`;
 });
 
+// Display Toggle On/off...
+const onOff = document.createElement('p');
+onOff.classList.toggle('onOff');
+onOff.textContent = `${hoverOn}`;
+onOff.style.fontFamily = 'Ariel, sans-serif';
+onOff.style.fontSize = '22px';
+onOff.style.marginTop = '0px';
+onOff.style.marginBottom = '0px';
+
+brushBtn.appendChild(onOff);
 
 // ================
 // Function Bank  =
@@ -125,8 +153,13 @@ function tileBehavior() {
     const tiles = document.querySelectorAll('.tile');
     tiles.forEach((tile) => {
         tile.addEventListener('mouseover', () => {
-            tile.style.backgroundColor = 'navy';
-            console.log("navy");
+            if (!hoverOn && isDrawing) {
+                tile.style.backgroundColor = 'navy';
+                console.log("navy");
+            } else if (hoverOn) {
+                tile.style.backgroundColor = 'navy';
+                console.log("navy");
+            }
         });
     });
 };
