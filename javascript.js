@@ -43,7 +43,6 @@ const currentSize = document.createElement('p');
     currentSize.style.fontSize = '22px';
     currentSize.style.marginTop = '0px';
     currentSize.style.marginBottom = '0px';
-    // currentSize.style.textAlign = 'center';
 
     sizeBtn.appendChild(currentSize);
 
@@ -66,6 +65,22 @@ clearBtn.addEventListener('click', () => {
     generateGrid();
     tileBehavior();
 });
+
+// Brush Button...
+let hoverOn = true;
+console.log(`hoverOn is ${hoverOn}...`);
+const brushBtn = document.querySelector('#brushBtn');
+brushBtn.addEventListener('click', () => {
+    if (hoverOn == true) {
+        hoverOn = false;
+    } else if (hoverOn == false) {
+        hoverOn = true;
+    }
+    console.log("Brush button clicked...");
+    console.log(`hoverOn is ${hoverOn}...`);
+});
+
+
 // ================
 // Function Bank  =
 // ================
