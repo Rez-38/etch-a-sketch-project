@@ -128,7 +128,7 @@ document.addEventListener('keydown', (event) => {
         onOff.textContent = `${hoverOn}`;
     }
 });
-//Brush Button Keybind Toggle Dependencies...
+//Brush Button Keybind Toggle animation setup...
 document.addEventListener('keydown', (e) => {
     if (e.key === 'Alt') {
         brushBtn.classList.toggle('activeKey');
@@ -149,6 +149,19 @@ onOff.style.marginTop = '0px';
 onOff.style.marginBottom = '0px';
 
 brushBtn.appendChild(onOff);
+
+// Rainbow Toggle Button
+let rainbow = false;
+const rainbowBtn = document.querySelector('#rainbowBtn');
+rainbowBtn.addEventListener('click', () => {
+    if (rainbow == false) {
+        rainbow = true;
+        console.log(`rainbow = ${rainbow}`);
+    } else {
+        rainbow = false;
+        console.log(`rainbow = ${rainbow}`);
+    }
+});
 
 // ================
 // Function Bank  =
