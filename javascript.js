@@ -116,6 +116,18 @@ brushBtn.addEventListener('click', () => {
     console.log(`hoverOn is ${hoverOn}...`);
     onOff.textContent = `${hoverOn}`;
 });
+document.addEventListener('keydown', (event) => {
+    if (event.key === 'Alt') {
+        if (hoverOn == true) {
+            hoverOn = false;
+        } else {
+            hoverOn = true;
+        }
+        console.log("Brush button hotkey was pressed...");
+        console.log(`hoverOn is ${hoverOn}...`);
+        onOff.textContent = `${hoverOn}`;
+    }
+});
 
 // Display Toggle On/off...
 const onOff = document.createElement('p');
