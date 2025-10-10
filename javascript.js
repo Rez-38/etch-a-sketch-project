@@ -39,7 +39,7 @@ sizeBtn.addEventListener('click', () => {
 
 
 // Grid Size Display... DOM Node practice
-const currentSize = document.createElement('p');
+const currentSize = document.createElement('span');
     currentSize.classList.toggle('currentSize');
     currentSize.textContent = `${size} x ${size}`;
     currentSize.style.fontFamily = 'Ariel, sans-serif';
@@ -128,9 +128,19 @@ document.addEventListener('keydown', (event) => {
         onOff.textContent = `${hoverOn}`;
     }
 });
+//Brush Button Keybind Toggle Dependencies...
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Alt') {
+        brushBtn.classList.toggle('activeKey');
 
-// Display Toggle On/off...
-const onOff = document.createElement('p');
+        setTimeout(() => {
+            brushBtn.classList.toggle('activeKey');
+        }, 100);
+    }
+}); 
+
+// Display Brush Toggle On/off...
+const onOff = document.createElement('span');
 onOff.classList.toggle('onOff');
 onOff.textContent = `${hoverOn}`;
 onOff.style.fontFamily = 'Ariel, sans-serif';

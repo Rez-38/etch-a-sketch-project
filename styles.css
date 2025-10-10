@@ -5,7 +5,6 @@
     flex-direction: column;
     min-height: 100vh;
     margin: 0;
-    /* box-sizing: border-box; */
     background-color: gray;
 } 
 
@@ -19,32 +18,11 @@ h1.header {
 div.board {
     display: flex;
     flex-wrap: wrap;
-    /* justify-content: center; */
-    /* align-items: center; */
     border: 7px solid black;
     border-radius: 15px;
-    /* box-sizing: border-box; */
-
 }
 
-/* .buttons {
-    display: flex;
-    flex-wrap: wrap;
-} */
-
-/* #clearBtn {
-    margin-left: 4.5rem;
-} */
-
-/* #sizeBtn {
-    display: flex;
-    flex-direction: column;
-
-} */
-
-div button#sizeBtn,
-#brushBtn,
-#clearBtn {
+.generalBtn {
     font-size: 1.75rem;
     padding: 1rem 2rem;
     margin-bottom: 3%;
@@ -52,9 +30,8 @@ div button#sizeBtn,
     border: 4px solid black;
     transition: all 0.2s ease;
 }
-div button#sizeBtn:hover,
-#brushBtn:hover,
-#clearBtn:hover {
+
+.generalBtn:hover {
     border: 4px solid white;
     border-radius: 25px;
     background-color: black;
@@ -62,9 +39,36 @@ div button#sizeBtn:hover,
     transform: scale(1.07);
 }
 
-div button#sizeBtn:active,
-#brushBtn:active,
-#clearBtn:active {
+.generalBtn:active {
+    transform: translateY(7px);
+    box-shadow: 0 4px white;
+}
+
+#brushBtn {
+    position: relative; /* so the tooltip can be positioned absolutely */
+    cursor: pointer;
+}
+
+.tooltip {
+    position: absolute;
+    bottom: 120%; /* position above the button */
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #ffffcc;
+    color: black;
+    padding: 5px 10px;
+    border-radius: 5px;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none; /* Not interactable */
+    transition: opacity 0.2s;
+}
+
+#brushBtn:hover .tooltip {
+    opacity: 1; /* show tooltip on hover */
+}
+
+#brushBtn.activeKey {
     transform: translateY(7px);
     box-shadow: 0 4px white;
 }
