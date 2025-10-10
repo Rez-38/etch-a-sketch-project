@@ -54,6 +54,9 @@ const board = document.querySelector('#board');
     board.style.width = `${boardSize}px`;
     board.style.height = `${boardSize}px`;
     board.style.backgroundColor = 'white';
+// Fix arrow grabbing tiles bug...
+    board.style.WebkitUserDrag = 'none';
+    board.style.userSelect = 'none';
 // Brush toggle...
 let isDrawing = false;
 console.log(`isDrawing = ${isDrawing}`);
@@ -159,6 +162,10 @@ function tileBehavior() {
                 tile.style.backgroundColor = 'navy';
                 console.log("navy");
             }
+        });
+        tile.addEventListener('mousedown', () => {
+            tile.style.backgroundColor = 'navy';
+            console.log('navy');
         });
     });
 };
