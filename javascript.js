@@ -11,13 +11,19 @@ const lime = 'rgb(0, 255, 0)';
 const lemon = 'rgb(255, 255, 0)';
 const orange = 'rgb(255, 102, 0)';
 const grape = 'rgb(102, 0, 102)';
+const raspberry = 'rgb(0, 0, 128)';
+const starfruit = 'rgb(250, 128, 114)';
+const passionfruit = 'rgb(0, 102, 204)';
 
 const skittles = [
     strawberry,
     lime,
     lemon,
     orange,
-    grape
+    grape,
+    raspberry,
+    starfruit,
+    passionfruit
 ];
 
 // Brush button dependency
@@ -209,20 +215,20 @@ function tileBehavior() {
                 tile.style.backgroundColor = 'navy';
                 console.log("navy");
             } else if (!hoverOn && isDrawing && rainbow) {
-                tile.style.backgroundColor = 'pink';
-                console.log("pink")
+                tile.style.backgroundColor = randomSkittle();
+                console.log("rainbow")
             } else if (hoverOn && !rainbow) {
                 tile.style.backgroundColor = 'navy';
                 console.log("navy");
             } else if (hoverOn && rainbow) {
-                tile.style.backgroundColor = 'pink';
-                console.log("pink")
+                tile.style.backgroundColor = randomSkittle();
+                console.log("rainbow");
             }
         });
         tile.addEventListener('mousedown', () => {
             if (rainbow) {
-                tile.style.backgroundColor = 'pink';
-                console.log("pink");
+                tile.style.backgroundColor = randomSkittle();
+                console.log("rainbow");
             } else {
                 tile.style.backgroundColor = 'navy';
                 console.log('navy');
@@ -230,3 +236,9 @@ function tileBehavior() {
         });
     });
 };
+
+function randomSkittle() {
+    const randomIndex = Math.floor(Math.random() * skittles.length);
+    const randomColor = skittles[randomIndex];
+    return randomColor;
+}
