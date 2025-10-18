@@ -43,6 +43,8 @@ sizeBtn.addEventListener('click', () => {
         return;
     } else if (newSize < 1 || newSize > 100) {
         return;
+    } else if (!Number.isInteger(newSize)) {
+        return;
     }
     
     size = newSize;
