@@ -5,6 +5,21 @@ let size = 16;
 let totalTiles = size * size;
 const boardSize = 960;
 let tileSize = boardSize / size;
+// Rainbow colors setup...
+const strawberry = 'rgb(255, 0, 0)';
+const lime = 'rgb(0, 255, 0)';
+const lemon = 'rgb(255, 255, 0)';
+const orange = 'rgb(255, 102, 0)';
+const grape = 'rgb(102, 0, 102)';
+
+const skittles = [
+    strawberry,
+    lime,
+    lemon,
+    orange,
+    grape
+];
+
 // Brush button dependency
 let hoverOn = true;
 
@@ -190,17 +205,28 @@ function tileBehavior() {
     const tiles = document.querySelectorAll('.tile');
     tiles.forEach((tile) => {
         tile.addEventListener('mouseover', () => {
-            if (!hoverOn && isDrawing) {
+            if (!hoverOn && isDrawing && !rainbow) {
                 tile.style.backgroundColor = 'navy';
                 console.log("navy");
-            } else if (hoverOn) {
+            } else if (!hoverOn && isDrawing && rainbow) {
+                tile.style.backgroundColor = 'pink';
+                console.log("pink")
+            } else if (hoverOn && !rainbow) {
                 tile.style.backgroundColor = 'navy';
                 console.log("navy");
+            } else if (hoverOn && rainbow) {
+                tile.style.backgroundColor = 'pink';
+                console.log("pink")
             }
         });
         tile.addEventListener('mousedown', () => {
-            tile.style.backgroundColor = 'navy';
-            console.log('navy');
+            if (rainbow) {
+                tile.style.backgroundColor = 'pink';
+                console.log("pink");
+            } else {
+                tile.style.backgroundColor = 'navy';
+                console.log('navy');
+            }
         });
     });
 };
