@@ -184,6 +184,7 @@ rainbowBtn.addEventListener('click', () => {
         rainbow = false;
         console.log(`rainbow = ${rainbow}`);
     }
+    rainbowBtn.classList.toggle('rainbowOn');
 });
 
 // ================
