@@ -73,6 +73,7 @@ div.board {
     box-shadow: 0 4px white;
 }
 
+/* Rainbow button animation */
 #rainbowBtn {
     position: relative;
     z-index: 1;
@@ -83,26 +84,33 @@ div.board {
     border: none;
 }
 
-#rainbowBtn::before {  /*Rainbow gradient*/
-    content: "";
-    position: absolute;
-    top: -4px;
-    bottom: -4px;
-    left: -4px;
-    right: -4px;
-    transform: scale(1.2);
-    border-radius: inherit;
-    background: linear-gradient(90deg, red, orange, yellow, green, blue, indigo, violet);
-    z-index: -1;
+#rainbowBtn.rainbowOn:hover {
+    border: 4px solid white;
+    border-radius: 25px;
+    /* background-color: black; */
+    color: black;
+    transform: scale(1.07);
 }
 
-#rainbowBtn::after { /* white layer */
+#rainbowBtn.rainbowOn:active {
+    transform: translateY(7px);
+    box-shadow: 0 4px white;
+}
+
+#rainbowBtn.rainbowOn::before {  /*Rainbow gradient*/
     content: "";
-    top: 3px;
-    bottom: 3px;
-    left: 3px;
-    right: 3px;
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: linear-gradient(90deg, red, orange, yellow, green, blue, indigo, violet);
+    z-index: -2;
+}
+
+#rainbowBtn.rainbowOn::after { /* white layer */
+    content: "";
+    position: absolute;
+    inset: 4px;
     border-radius: inherit;
     background-color: white;
-    z-index: 0;
+    z-index: -1;
 }
