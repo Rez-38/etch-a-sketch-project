@@ -173,6 +173,21 @@ onOff.style.marginBottom = '0px';
 
 brushBtn.appendChild(onOff);
 
+// Shading Toggle Button
+let shadingOn = false;
+document.querySelector('.shadeOnOff').textContent = `${shadingOn}`;
+const shadingBtn = document.querySelector('#shadingBtn');
+shadingBtn.addEventListener('click', () => {
+    if (shadingOn == false) {
+        shadingOn = true;
+    } else {
+        shadingOn = false;
+    }
+    console.log(`Shading button was pressed`);
+    console.log(`Shading = ${shadingOn}`);
+    document.querySelector('.shadeOnOff').textContent = `${shadingOn}`;
+});
+
 // Rainbow Toggle Button
 let rainbow = false;
 const rainbowBtn = document.querySelector('#rainbowBtn');
