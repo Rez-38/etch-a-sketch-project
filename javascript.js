@@ -215,10 +215,14 @@ function clearGrid() {
 function generateGrid() {
     for (let i = 0; i < totalTiles; i++) {
         const tile = document.createElement('div');
+
         tile.classList.toggle('tile');
     
         tile.style.width = `${tileSize}px`;
         tile.style.height = `${tileSize}px`;
+
+        // Shading Setup
+        tile.darkLevel = 0;
     
         board.appendChild(tile);
         console.log("fresh grid ready");
@@ -229,6 +233,10 @@ function tileBehavior() {
     const tiles = document.querySelectorAll('.tile');
     tiles.forEach((tile) => {
         tile.addEventListener('mouseover', () => {
+            if (shadingOn && hoverOn) {
+                shadeTile(tile);
+                return;
+            }
             if (!hoverOn && isDrawing && !rainbow) {
                 tile.style.backgroundColor = 'navy';
                 console.log("navy");
@@ -244,6 +252,10 @@ function tileBehavior() {
             }
         });
         tile.addEventListener('mousedown', () => {
+            if (shadingOn && !hoverOn) {
+                shadeTile(tile);
+                return;
+            }
             if (rainbow) {
                 tile.style.backgroundColor = randomSkittle();
                 console.log("rainbow");
@@ -259,4 +271,13 @@ function randomSkittle() {
     const randomIndex = Math.floor(Math.random() * skittles.length);
     const randomColor = skittles[randomIndex];
     return randomColor;
+}
+
+function shadeTile(tile) {
+    let level = tile.darkLevel;
+    if (level < 10) {
+        ++level;
+        tile.darkLevel = level;
+        tile.style.opacity = level / 10;
+    }
 }
