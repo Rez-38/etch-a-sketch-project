@@ -233,33 +233,48 @@ function tileBehavior() {
     const tiles = document.querySelectorAll('.tile');
     tiles.forEach((tile) => {
         tile.addEventListener('mouseover', () => {
-            if (shadingOn && hoverOn) {
-                shadeTile(tile);
-                return;
-            }
-            if (!hoverOn && isDrawing && !rainbow) {
+            // if (shadingOn && hoverOn) {
+            //     shadeTile(tile);
+            //     return;
+            // }
+            if (!hoverOn && isDrawing && !rainbow && !shadingOn) {
+                tile.darkLevel = 0;
+                tile.style.opacity = 1;
                 tile.style.backgroundColor = 'navy';
                 console.log("navy");
-            } else if (!hoverOn && isDrawing && rainbow) {
+            } else if (!hoverOn && isDrawing && rainbow && !shadingOn) {
+                tile.darkLevel = 0;
+                tile.style.opacity = 1;
                 tile.style.backgroundColor = randomSkittle();
                 console.log("rainbow")
-            } else if (hoverOn && !rainbow) {
+            } else if (hoverOn && !rainbow && !shadingOn) {
+                tile.darkLevel = 0;
+                tile.style.opacity = 1;
                 tile.style.backgroundColor = 'navy';
                 console.log("navy");
-            } else if (hoverOn && rainbow) {
+            } else if (hoverOn && rainbow && !shadingOn) {
+                tile.darkLevel = 0;
+                tile.style.opacity = 1;
                 tile.style.backgroundColor = randomSkittle();
                 console.log("rainbow");
             }
         });
         tile.addEventListener('mousedown', () => {
-            if (shadingOn && !hoverOn) {
+            /*if (shadingOn /*&& !hoverOn*//*) {
                 shadeTile(tile);
                 return;
-            }
-            if (rainbow) {
+            }*/
+            if (shadingOn) {
+                shadeTile(tile);
+                console.log("shading");
+            } else if (rainbow) {
+                tile.darkLevel = 0;
+                tile.style.opacity = 1;
                 tile.style.backgroundColor = randomSkittle();
                 console.log("rainbow");
             } else {
+                tile.darkLevel = 0;
+                tile.style.opacity = 1;
                 tile.style.backgroundColor = 'navy';
                 console.log('navy');
             }
