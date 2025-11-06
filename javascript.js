@@ -349,3 +349,5 @@ function shadeTile(tile) {
         tile.style.opacity = level / 10;
     }
 }
+
+// hope the code was readable :)

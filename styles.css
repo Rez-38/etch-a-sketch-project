@@ -6,6 +6,7 @@
     min-height: 100vh;
     margin: 0;
     background-color: gray;
+    zoom: 0.8;
 } 
 
 h1.header {
