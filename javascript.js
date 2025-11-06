@@ -237,6 +237,12 @@ function tileBehavior() {
             //     shadeTile(tile);
             //     return;
             // }
+            if (shadingOn && hoverOn) {
+                shadeTile(tile);
+            } else if (shadingOn && isDrawing/* && hoverOn*/) {
+                shadeTile(tile);
+            }
+
             if (!hoverOn && isDrawing && !rainbow && !shadingOn) {
                 tile.darkLevel = 0;
                 tile.style.opacity = 1;
