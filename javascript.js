@@ -186,6 +186,7 @@ shadingBtn.addEventListener('click', () => {
     console.log(`Shading button was pressed`);
     console.log(`Shading = ${shadingOn}`);
     document.querySelector('.shadeOnOff').textContent = `${shadingOn}`;
+    shadingBtn.classList.toggle('shadingOn');
 });
 
 // Rainbow Toggle Button
