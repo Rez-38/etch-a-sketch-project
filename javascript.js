@@ -191,7 +191,8 @@ shadingBtn.addEventListener('click', () => {
 });
 // Keybind 's' to Shade button...
 document.addEventListener('keydown', (event) => {
-    if (event.key ==='s') {
+    if (event.key ==='s' ||
+        event.key === 'S') {
         if (shadingOn == true) {
             shadingOn = false;
         } else {
@@ -206,7 +207,8 @@ document.addEventListener('keydown', (event) => {
 
 // Shade button keybind toggle animation setup...
 document.addEventListener('keydown', (e) => {
-    if (e.key === 's') {
+    if (e.key === 's' ||
+        e.key === 'S') {
         shadingBtn.classList.toggle('activeKey');
 
         setTimeout(() => {
@@ -227,6 +229,32 @@ rainbowBtn.addEventListener('click', () => {
         console.log(`rainbow = ${rainbow}`);
     }
     rainbowBtn.classList.toggle('rainbowOn');
+});
+// Keybind 'r' to Rainbow btn...
+document.addEventListener('keydown', (event) => {
+    if (event.key === 'r' ||
+        event.key === 'R') {
+            if (rainbow == true) {
+                rainbow = false;
+            } else {
+                rainbow = true;
+            }
+            console.log("Rainbow button hotkey was pressed...");
+            console.log(`rainbow is now ${rainbow}`);
+            rainbowBtn.classList.toggle('rainbowOn');
+    }
+});
+
+// Rainbow button keybind toggle animation setup...
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'r' ||
+        e.key === 'R') {
+            rainbowBtn.classList.toggle('activeKey');
+
+            setTimeout(() => {
+                rainbowBtn.classList.toggle('activeKey');
+            }, 100);
+        }
 });
 
 // ================

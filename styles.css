@@ -44,7 +44,9 @@ div.board {
     box-shadow: 0 4px white;
 }
 
-#brushBtn {
+#brushBtn, 
+#shadingBtn, 
+#rainbowBtn {
     position: relative; /* so the tooltip can be positioned absolutely */
     cursor: pointer;
 }
@@ -64,13 +66,16 @@ div.board {
     transition: opacity 0.2s;
 }
 
-#brushBtn:hover .tooltip {
+#brushBtn:hover .tooltip,
+#shadingBtn:hover .tooltip,
+#rainbowBtn:hover .tooltip {
     opacity: 1; /* show tooltip on hover */
 }
 
 /* keybind press animation */
 #brushBtn.activeKey,
-#shadingBtn.activeKey {
+#shadingBtn.activeKey,
+#rainbowBtn.activeKey {
     transform: translateY(7px);
     box-shadow: 0 4px white;
 }
@@ -79,7 +84,6 @@ div.board {
 #rainbowBtn {
     position: relative;
     z-index: 1;
-    overflow: hidden;
 }
 
 #rainbowBtn.rainbowOn {
@@ -131,7 +135,6 @@ div.board {
 #shadingBtn {
     position: relative;
     z-index: 1;
-    overflow: hidden;
 }
 
 #shadingBtn.shadingOn {
