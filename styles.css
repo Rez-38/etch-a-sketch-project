@@ -68,7 +68,9 @@ div.board {
     opacity: 1; /* show tooltip on hover */
 }
 
-#brushBtn.activeKey {
+/* keybind press animation */
+#brushBtn.activeKey,
+#shadingBtn.activeKey {
     transform: translateY(7px);
     box-shadow: 0 4px white;
 }

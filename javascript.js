@@ -139,6 +139,7 @@ brushBtn.addEventListener('click', () => {
     console.log(`hoverOn is ${hoverOn}...`);
     onOff.textContent = `${hoverOn}`;
 });
+// Keybind "Alt" to Brush button...
 document.addEventListener('keydown', (event) => {
     if (event.key === 'Alt') {
         if (hoverOn == true) {
@@ -188,6 +189,31 @@ shadingBtn.addEventListener('click', () => {
     document.querySelector('.shadeOnOff').textContent = `${shadingOn}`;
     shadingBtn.classList.toggle('shadingOn');
 });
+// Keybind 's' to Shade button...
+document.addEventListener('keydown', (event) => {
+    if (event.key ==='s') {
+        if (shadingOn == true) {
+            shadingOn = false;
+        } else {
+            shadingOn = true;
+        }
+        console.log("Shade button hotkey was pressed...");
+        console.log(`shadingOn is ${shadingOn}...`);
+        document.querySelector('.shadeOnOff').textContent = `${shadingOn}`;
+        shadingBtn.classList.toggle('shadingOn');
+    }
+});
+
+// Shade button keybind toggle animation setup...
+document.addEventListener('keydown', (e) => {
+    if (e.key === 's') {
+        shadingBtn.classList.toggle('activeKey');
+
+        setTimeout(() => {
+            shadingBtn.classList.toggle('activeKey');
+        }, 100);
+    }
+});
 
 // Rainbow Toggle Button
 let rainbow = false;
@@ -234,13 +260,9 @@ function tileBehavior() {
     const tiles = document.querySelectorAll('.tile');
     tiles.forEach((tile) => {
         tile.addEventListener('mouseover', () => {
-            // if (shadingOn && hoverOn) {
-            //     shadeTile(tile);
-            //     return;
-            // }
             if (shadingOn && hoverOn) {
                 shadeTile(tile);
-            } else if (shadingOn && isDrawing/* && hoverOn*/) {
+            } else if (shadingOn && isDrawing) {
                 shadeTile(tile);
             }
 
@@ -267,10 +289,6 @@ function tileBehavior() {
             }
         });
         tile.addEventListener('mousedown', () => {
-            /*if (shadingOn /*&& !hoverOn*//*) {
-                shadeTile(tile);
-                return;
-            }*/
             if (shadingOn) {
                 shadeTile(tile);
                 console.log("shading");
